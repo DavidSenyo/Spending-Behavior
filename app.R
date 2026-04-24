@@ -5,13 +5,13 @@
 # Again, this is for showcasing what I can do with shiny to be showcased to employers/recruiters
 
 #Finalized on June 21, 2025 13:54 GMT
-# Additional files: viz_report_file.Rmd, watermark_file_2
+# ##### Additional files: viz_report_file.Rmd, watermark_file_2 MUST BE ADDED TO MAKE THE DOWNLOAD WORK CORRECTLY ####
 
 #Published on June 25, 2025, 11:45 GMT with all features showing for Emma to review and then a new one without some
 # of the features will be published. 
 
 
-#The download button and the prediction tab have all being disabled for deployment until asked
+####The download button and the prediction tab have all being disabled for deployment until asked
 ######################################################################################################################
 ###Libraries
 library(shiny)
