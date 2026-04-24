@@ -1,0 +1,49 @@
+---
+title: "Visualization Report"
+output: 
+  html_document:
+    df_print: paged
+    css: watermark_file_2.css
+params:
+  data: NA
+  email: "davidackuaku@gmail.com"
+  name: "David Ackuaku"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE)
+library(ggplot2)
+library(GGally)
+library(dplyr)
+```
+
+
+#### Created By: `r params$name` 
+
+---
+## 🔍 Correlation Heatmap
+```{r}
+num_data <- params$data %>% select(where(is.numeric))
+corr <- cor(num_data)
+corrplot::corrplot(corr, method = "color", type = "upper", tl.cex = 0.8)
+```
+
+## 📦 Boxplot: Spending by Education
+```{r}
+ggplot(params$data, aes(x = EducationLevel, y = SpendingScore, fill = EducationLevel)) +
+  geom_boxplot() +
+  theme_minimal() +
+  theme(legend.position = "none")
+```
+
+## 🟦 Density Plot: Satisfaction
+```{r}
+ggplot(params$data, aes(x = Satisfaction)) +
+  geom_density(fill = "skyblue", alpha = 0.5) +
+  theme_minimal()
+```
+
+## 🔗 Pairs Plot
+```{r}
+GGally::ggpairs(params$data[, c("Age", "Income", "Satisfaction", "SpendingScore", "LoyaltyYears")])
+```
